@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="handlebars.min-v4.7.7.js"></script>
+</head>
+<body>
+    <div id="container">
+        
+    </div>
+
+    <!-- 핸들바스 IE 구동 가능 문법 -->
+    <script>
+        var template = '<p>{{firstname}} {{lastname}}</p>';
+
+        var person = {
+            firstname: "James",
+            lastname: "Bond",
+          };
+
+
+        var handlebars = Handlebars.compile(template);
+
+        var compiledText = handlebars(person);
+        var container = document.getElementById('container');
+        
+        container.innerHTML = compiledText;
+      </script>
+</body>
+</html>
