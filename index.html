@@ -12,6 +12,18 @@
         
     </div>
 
+    <div id="listContainer">
+
+    </div>
+    
+    <script id="listTemplate" type="text/x-handlebars">
+      <ul class="people_list">
+        {{#each people}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </script>
+
     <!-- 핸들바스 IE 구동 가능 문법 -->
     <script>
         var template = '<p>{{firstname}} {{lastname}}</p>';
@@ -28,6 +40,25 @@
         var container = document.getElementById('container');
         
         container.innerHTML = compiledText;
+      </script>
+
+      <script>
+        // list
+        var info = {
+          people: [
+            "Yehuda Katz",
+            "Alan Johnson",
+            "Charles Jolley",
+          ],
+        };
+
+
+        var template = document.querySelector("#listTemplate").textContent;
+        var handlebars = Handlebars.compile(template);
+        var compiledText = handlebars(info);
+        var listContainer = document.querySelector("#listContainer");
+        listContainer.innerHTML = compiledText;
+        
       </script>
 </body>
 </html>
